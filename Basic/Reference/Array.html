@@ -171,6 +171,64 @@
             x.innerHTML = Array.isArray(fruits);
         }
     </script>
+
+    <h2>Javascript Join Method</h2>
+    <button onclick="join_funtion()">join</button>
+    <p id="join_demo"></p>
+
+    <script>
+        function join_funtion() {
+            var name = ["hi my name is:", "mahim"];
+            var x = document.getElementById("join_demo").innerHTML = name.join();
+        }
+    </script>
+    <h2>array keys method</h2>
+    <p id="keys_demo"></p>
+    <script>
+        var fruits = ["banana", "apple", "mango"];
+        var fk = fruits.keys();
+
+        for (x of fk) {
+            document.getElementById("keys_demo").innerHTML += x + "<br>";
+        }
+    </script>
+
+    <h2>Array LastIndexof Method </h2>
+    <button onclick="lastindexof_function()">lastindexof</button>
+    <p id="lastindexof_demo"></p>
+    <script>
+        function lastindexof_function() {
+            var fruits = ["banana", "apple", "orange"];
+            var a = fruits.lastIndexOf("apple");
+
+            var x = document.getElementById("lastindexof_demo");
+            x.innerHTML = a;
+        }
+    </script>
+    <h2>Array map method</h2>
+    <button onclick="map_function()">map</button>
+    <p id="map_demo"></p>
+    <script>
+        var numbers = [4, 3, 2, 12];
+        function map_function() {
+            x = document.getElementById("map_demo")
+            x.innerHTML = numbers.map(Math.sqrt);
+
+        }
+    </script>
+    <h2>array pop method</h2>
+    <button onclick="pop_function()">pop</button>
+    <p id="pop_demo"></p>
+    <script>
+        var fruits = ["mango","banana","apple"];
+        document.getElementById("pop_demo").innerHTML = fruits;
+
+        function pop_function(){
+            fruits.pop();
+            document.getElementById("pop_demo").innerHTML = fruits;
+
+        }
+    </script>
 </body>
 
 </html>
