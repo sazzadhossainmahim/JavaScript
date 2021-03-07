@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array concat Method</h1>
+    <button onclick="concat()">Try it</button>
+    <p id="a"></p>
+    <script>
+        function concat() {
+            var a = ["sazzad hossain", "mim"];
+            var b = ["abdc", "cdef"];
+            var c = a.concat(b);
+            document.getElementById("a").innerHTML = c;
+
+        }
+    </script>
+    <button onclick="copywithin()">copywithin</button>
+    <p id="copywithin_element"></p>
+    <script>
+        var fruits = ["a", "b", "c", "d"];
+        document.getElementById("copywithin_element").innerHTML = fruits;
+
+        function copywithin() {
+            document.getElementById("copywithin_element").innerHTML = fruits.copyWithin(2, 0);
+        }
+    </script>
+
+    <button>entires</button>
+    <p id="demo_entries"></p>
+
+    <script>
+        var a = ["a", "b", "c", "d"];
+        var b = a.entries();
+
+        for (x of b) {
+            document.getElementById("demo_entries").innerHTML += x + "<br>";
+
+        }
+    </script>
+
+    <button onclick="every_elemen_function()">Every()</button>
+    <p id="every_property"></p>
+    <script>
+        var ages = [32, 33, 16, 40];
+
+        function every_element_ages(age) {
+            return age >= 18;
+        }
+
+        function every_elemen_function() {
+            document.getElementById("every_property").innerHTML = ages.every(every_element_ages);
+        }
+    </script>
+
+    <h1>array fill()</h1>
+    <button onclick="array_fill_function()">array fill()</button>
+    <p id="array_fill"></p>
+    <script>
+        var fruits = ["Banana", "kola", "apel", "Mango"];
+        document.getElementById("array_fill").innerHTML = fruits;
+
+        function array_fill_function() {
+            document.getElementById("array_fill").innerHTML = fruits.fill("mahim");
+        }
+    </script>
+
+    <h2>array filter method</h2>
+    <button onclick="array_filter()">Array_filter</button>
+    <p id="array_filter"></p>
+    <script>
+        var ages = ["32", "21", "22"];
+
+        function checkadult(age) {
+            return age => 21;
+        }
+        function array_filter() {
+            document.getElementById("array_filter").innerHTML = ages.filter(checkadult);
+        }
+    </script>
+
+    <h2>Array find method</h2>
+    <button onclick="my_method()">Array_find</button>
+    <p id="find_method">
+
+    </p>
+    <script>
+        var ages = ["19", "1", "3"];
+        function chaeck_ages(age) {
+            return age >= 18;
+        }
+        function my_method() {
+            document.getElementById("find_method").innerHTML = ages.find(chaeck_ages);
+        }
+    </script>
+
+    <h2>Array find_Index method</h2>
+    <button onclick="find_Index()">find_Index</button>
+    <p id="findindex_property"></p>
+    <script>
+        var ages = ["2", "3", "5"];
+
+        function check_age(age) {
+            return age >= 5;
+        }
+        function find_Index() {
+            document.getElementById("findindex_property").innerHTML = ages.findIndex(check_age);
+        }
+    </script>
+
+
+    <h2>Array for_each method</h2>
+    <p>List all array items, with keys and values:</p>
+    <p id="foreach_demo"></p>
+
+    <script>
+        var fruits = ["apple", "orange", "chery"];
+        fruits.forEach(foreach_function);
+        function foreach_function(items, index) {
+            document.getElementById("foreach_demo").innerHTML += index + ":" + items + "<br>";
+        }
+    </script>
+
+
+    <h2>Array form method</h2>
+    <p id="form_demo"></p>
+    <script>
+        var array = Array.from("ABCDEFGHIJKL")
+        document.getElementById("form_demo").innerHTML = array;
+    </script>
+
+    <h2>Array includes Mehtod</h2>
+    <p>checks contain is available</p>
+    <p id="includes_demo"></p>
+    <script>
+        var fruits = ["Banana", "mango", "apple"];
+        var n = fruits.includes("mango");
+
+        document.getElementById("includes_demo").innerHTML = n;    
+    </script>
+    <h2>array indexof method</h2>
+    <button onclick="indexof_function()">indexof</button>
+    <div id="indexof_demo"></div>
+    <script>
+        function indexof_function() {
+            var fruits = ["banana", "Orange", "apple"];
+            var a = fruits.indexOf("apple");
+            document.getElementById("indexof_demo").innerHTML = a;
+        }
+    </script>
+
+
+</body>
+
+<body>
+
+    <h2>array isarray method</h2>
+    <button onclick="isarray_function()">isarray</button>
+    <p id="isarray_demo"></p>
+
+    <script>
+        function isarray_function() {
+            var fruits = ["banana", "orange", "apple"];
+            var x = document.getElementById("isarray_demo");
+            x.innerHTML = Array.isArray(fruits);
+        }
+    </script>
+
+    <h2>Javascript Join Method</h2>
+    <button onclick="join_funtion()">join</button>
+    <p id="join_demo"></p>
+
+    <script>
+        function join_funtion() {
+            var name = ["hi my name is:", "mahim"];
+            var x = document.getElementById("join_demo").innerHTML = name.join();
+        }
+    </script>
+    <h2>array keys method</h2>
+    <p id="keys_demo"></p>
+    <script>
+        var fruits = ["banana", "apple", "mango"];
+        var fk = fruits.keys();
+
+        for (x of fk) {
+            document.getElementById("keys_demo").innerHTML += x + "<br>";
+        }
+    </script>
+
+    <h2>Array LastIndexof Method </h2>
+    <button onclick="lastindexof_function()">lastindexof</button>
+    <p id="lastindexof_demo"></p>
+    <script>
+        function lastindexof_function() {
+            var fruits = ["banana", "apple", "orange"];
+            var a = fruits.lastIndexOf("apple");
+
+            var x = document.getElementById("lastindexof_demo");
+            x.innerHTML = a;
+        }
+    </script>
+    <h2>Array map method</h2>
+    <button onclick="map_function()">map</button>
+    <p id="map_demo"></p>
+    <script>
+        var numbers = [4, 3, 2, 12];
+        function map_function() {
+            x = document.getElementById("map_demo")
+            x.innerHTML = numbers.map(Math.sqrt);
+
+        }
+    </script>
+    <h2>array pop method</h2>
+    <button onclick="pop_function()">pop</button>
+    <p id="pop_demo"></p>
+    <script>
+        var fruits = ["mango", "banana", "apple"];
+        document.getElementById("pop_demo").innerHTML = fruits;
+
+        function pop_function() {
+            fruits.pop();
+            document.getElementById("pop_demo").innerHTML = fruits;
+
+        }
+    </script>
+
+    <h2>Array push method</h2>
+    <button onclick="push_function()">push</button>
+    <p id="push_demo"></p>
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("push_demo").innerHTML = fruits;
+
+        function push_function() {
+            fruits.push("kiwi");
+            document.getElementById("push_demo").innerHTML = fruits;
+        }
+
+    </script>
+
+    <h2>Array reduce method</h2>
+    <p id="demo_reduce"></p>
+    <script>
+        var numbers = [175, 50, 25];
+        document.getElementById("demo_reduce").innerHTML = numbers.reduce(reduce_function);
+
+        function reduce_function(total, num) {
+            return total - num;
+        }
+    </script>
+    <h2>array reduceright method</h2>
+    <p id="demo_reduceright"></p>
+    <script>
+        var numbers = [5, 5, 3];
+        document.getElementById("demo_reduceright").innerHTML = numbers.reduceRight(reduce_function);
+
+        function reduceright_function(total, num) {
+            return total - num;
+        }
+    </script>
+
+    <h2>Array reverse method</h2>
+    <button onclick="reverse_function()">reverse</button>
+    <p id="demo_reverse"></p>
+    <script>
+        var fruits = ["mango", "apple", "banana"];
+        document.getElementById("demo_reverse").innerHTML = fruits;
+
+        function reverse_function() {
+            fruits.reverse();
+            document.getElementById("demo_reverse").innerHTML = fruits;
+        }
+    </script>
+    <h2>array shift method</h2>
+    <button onclick="shift_function()">shift</button>
+    <p id="demo_shift"></p>
+    <script>
+        var fruits = ["banana", "mango", "apple"];
+        document.getElementById("demo_shift").innerHTML = fruits;
+
+        function shift_function() {
+            fruits.shift();
+            document.getElementById("demo_shift").innerHTML = fruits;
+        }
+    </script>
+    <h2>Array slice method</h2>
+    <button onclick="slice_function()">slice</button>
+    <p id="demo_slice"></p>
+    <script>
+        function slice_function() {
+            var fruits = ["banana", "apple", "mango", "liche"];
+            var slice = fruits.slice(1, 3);
+            document.getElementById("demo_slice").innerHTML = slice;
+        }
+    </script>
+    <h2>Array some() method</h2>
+    <button onclick="some_method()">some()</button>
+    <p id="demo_some"></p>
+    <script>
+        var ages = [3, 5, 3, 2, 9];
+        function checkadult(age) {
+            return age >= 19;
+        }
+        function some_method() {
+            document.getElementById("demo_some").innerHTML = ages.some(checkadult);
+        }
+    </script>
+    <h2>Array sort() method</h2>
+    <button onclick="sort_function()">sort()</button>
+    <p id="demo_sort"></p>
+    <script>
+        var fruits = ["banana", "apple", "mango", "masala"];
+        document.getElementById("demo_sort").innerHTML = fruits;
+
+        function sort_function() {
+            fruits.sort();
+            document.getElementById("demo_sort").innerHTML = fruits;
+        }
+    </script>
+
+    <h2>Array splice() method</h2>
+    <button onclick="splice_function()">splice()</button>
+    <p id="demo_splice"></p>
+    <script>
+        var variable = ["banana", "mango", "apple"];
+        document.getElementById("demo_splice").innerHTML = variable;
+
+        function splice_function() {
+            variable.splice(2, 0, "lemon", "kiwi");
+            document.getElementById("demo_splice").innerHTML = variable;
+        }
+    </script>
+    <h2>array tostring() mehtod</h2>
+    <button onclick="tostring_function()">tostring()</button>
+    <p id="demo_tostring"></p>
+    <script>
+        function tostring_function() {
+            var variable = ["banana", "mango", "apple"];
+            var tostring = variable.toString();
+            document.getElementById("demo_tostring").innerHTML = tostring;
+        }
+    </script>
+    <h2>Array unshift() method</h2>
+    <button onclick="unshift_function()">unshift()</button>
+    <p id="demo_unshift"></p>
+    <script>
+        var variable = ["mango", "banana", "apple"];
+        document.getElementById("demo_unshift").innerHTML = variable;
+
+        function unshift_function() {
+            variable.unshift("mango", "apple");
+            document.getElementById("demo_unshift").innerHTML = variable;
+        }
+    </script>
+    <h2>Array valueof() method</h2>
+    <button onclick="valueof_funciton()">valueof()</button>
+    <p id="demo_valueof"></p>
+    <script>
+        function valueof_funciton() {
+            var fruits = ["banana", "mango", "apple"];
+            document.getElementById("demo_valueof").innerHTML = fruits.valueOf();
+        }
+    </script>
+</body>
+
+</html>
