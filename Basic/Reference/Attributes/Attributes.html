@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Find out if an attribute is the element's ID attribute or not:</h2>
+    <p id="attributeisid_demo">click the button to find first attribut in p element id</p>
+    <button onclick="attributeisid_function()">attributeisid</button>
+    <script>
+        function attributeisid_function(){
+            var variable_x = document.getElementById("attributeisid_demo");
+            variable_x.innerHTML = variable_x.attributes[0].isId;
+        }
+
+    </script>
+</body>
+
+</html>
