@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onclick="myFunction()">
+    <h2>activeeleent property</h2>
+    <input type="text" value="An input field">
+    <button>A Button</button>
+    <p id="activeelement_demo"></p>
+
+    <script>
+        function myFunction() {
+            var x = document.activeElement.tagName;
+            document.getElementById("activeelement_demo").innerHTML = x;
+        }
+    </script>
+</body>
+
+</html>
