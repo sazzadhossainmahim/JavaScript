@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h2>Find out if an attribute is the element's ID attribute or not:</h2>
-    <p id="attributeisid_demo">click the button to find first attribut in p element id</p>
-    <button onclick="attributeisid_function()">attributeisid</button>
-    <script>
-        function attributeisid_function(){
-            var variable_x = document.getElementById("attributeisid_demo");
-            variable_x.innerHTML = variable_x.attributes[0].isId;
-        }
+<h1>The attr.isId Methods</h1>
+<p id="attr_isId_demo"></p>
+<button onclick="attr_isId_Function()">attr_isId</button>
+<script>
+    function attr_isId_Function() {
+        var x = document.getElementById("attr_isId_demo");
+        x.innerHTML = x.attributes[0].isId;
+    }
+</script>
 
-    </script>
+
+
+<p>The attr.name property</p>
+<button onclick="attrname_function()">attr.name</button>
+<p id="attrname_demo"></p>
+
+<script>
+    function attrname_function() {
+        var btn = document.getElementsByTagName("BUTTON")[0];
+        var x = btn.attributes[0].name;
+        document.getElementById("attrname_demo").innerHTML = x;
+    }
+
+</script>
+
+<h2>HTML DOM value Property ---- attr.value</h2>
+<button onclick="attrvalue_funciton()">attr.value</button>
+<p id="attrvalue_demo"></p>
+<script>
+    function attrvalue_funciton() {
+        var button = document.getElementsByTagName("BUTTON")[0];
+        var value = button.attributes[0].value;
+        document.getElementById("attrvalue_demo").innerHTML = value;
+    }
+</script>
+
+
 </body>
 
 </html>
