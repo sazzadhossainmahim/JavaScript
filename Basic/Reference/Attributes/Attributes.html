@@ -32,7 +32,7 @@
 
 </script>
 
-<h2>HTML DOM value Property ---- attr.value</h2>
+<h2>HTML DOM value Property ---- attr.value()</h2>
 <button onclick="attrvalue_funciton()">attr.value</button>
 <p id="attrvalue_demo"></p>
 <script>
@@ -43,7 +43,83 @@
     }
 </script>
 
+<h2>attr.specified</h2>
+<button onclick="specified_function()">attr.specified()</button>
+<p id="spcified_demo"></p>
+<script>
+    function specified_function() {
+        var specified_variable = document.getElementsByTagName("button")[0];
+        var put = specified_variable.getAttributeNode("onclick").specified;
+        document.getElementById("spcified_demo").innerHTML = put;
+    }
 
+
+</script>
+
+<h2>HTML DOM getNamedItem() Method</h2>
+<button onclick=" getnameditem_function()">getNamedItem()</button>
+<p id="getnameditem_demo"></p>
+<script>
+
+    function getnameditem_function() {
+        var variable_a = document.getElementsByTagName("BUTTON")[0];
+        var variable_x = variable_a.attributes.getNamedItem("onclick").value;
+        document.getElementById("getnameditem_demo").innerHTML = variable_x;
+    }
+
+</script>
+<h2>HTML DOM item() Method</h2>
+<button onclick="item_function()"> item()</button>
+<p id="item_demo"></p>
+<script>
+    function item_function() {
+        var variable_a = document.getElementsByTagName("button")[0];
+        var variable_x = variable_a.attributes.item(0).name;
+        document.getElementById("item_demo").innerHTML = variable_x;
+    }
+</script>
+<h2>HTML DOM length Property</h2>
+<button onclick="length_function()">length()</button>
+<p id="length_demo"></p>
+<script>
+    function length_function() {
+        var variable_x = document.getElementsByTagName("button")[0].attributes.length;
+        document.getElementById("length_demo").innerHTML = variable_x;
+    }
+</script>
+<h2>HTML DOM removeNamedItem() Method</h2>
+
+<input type="button" value="mahim">
+
+<button onclick="removenamedited_function()">removeNamedItem()</button>
+<script>
+    function removenamedited_function() {
+        var btn = document.getElementsByTagName("INPUT")[0];
+        btn.attributes.removeNamedItem("type");
+    }
+</script>
+
+<h2>HTML DOM setNamedItem() Method</h2>
+<style>
+    .democlass {
+        color: red;
+    }
+</style>
+<h1>hellow</h1>
+
+<button onclick="setNamedItem_function()">setNamedItem()</button>
+
+<script>
+
+    function setNamedItem_function() {
+        var h = document.getElementsByTagName("h1")[1];
+        var typ = document.createAttribute("class");
+        typ.value = "democlass";
+        h.attributes.setNamedItem(typ);
+    }
+
+
+</script>
 </body>
 
 </html>
