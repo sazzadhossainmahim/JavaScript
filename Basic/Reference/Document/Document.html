@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Properties and Methods</title>
+</head>
+
+<body onclick="activeElement_function()">
+    <h2>HTML DOM activeElement Property</h2>
+    <input type="text" value="an input field">
+    <button>activeElement</button>
+    <p id="activeElement_demo"></p>
+    <script>
+        function activeElement_function() {
+            var variable_activeElement = document.activeElement.tagName;
+            document.getElementById("activeElement_demo").innerHTML = variable_activeElement;
+        }
+    </script>
+    <h2>HTML DOM addEventListener() Method</h2>
+    <p id="addEventListener_demo"></p>
+    <script>
+        document.addEventListener("click",function(){
+            document.getElementById("addEventListener_demo").innerHTML = "Mahim";
+        });
+    </script>
+    <h2>HTML DOM adoptNode() Method</h2>
+    <iframe src="photo.png" frameborder="0"></iframe>
+    <button >adoptNode</button>
+    <script>
+        function adoptNode_function(){
+            var frame = document.getElementsByTagName("IFRAME")[0]
+            var h= frame.textContent.document.getElementsByTagName("H1")[1];
+            var x = document.adoptNode(h);
+            document.body.appendChild(x);
+        }
+    </script>
+<h2>HTML DOM anchors Collection</h2>
+
+<a name="html"></a>
+<a name="css"></a>
+<a name="js"></a>
+
+<button onclick="anchors_function()">anchors</button>
+
+<p id="anchors_demo"></p>
+<script>
+    function anchors_function(){
+        var x = document.anchors.length;
+        document.getElementById("anchors_demo").innerHTML = x;
+    }
+</script>
+
+<h2>HTML DOM baseURI Property</h2>
+<button onclick="baseuri_function()">baseURI</button>
+<p id="baseuri_demo"></p>
+<script>
+    function baseuri_function(){
+        var baseuri_variable  = document.baseURI;
+        document.getElementById("baseuri_demo").innerHTML = baseuri_variable;
+    }
+</script>
+
+<h2>HTML DOM body Property</h2>
+<button onclick="body_function()">body</button>
+<script>
+    function body_function(){
+        document.body.style.backgroundColor= "yellow";
+    }
+</script>
+
+</body>
+
+</html>
