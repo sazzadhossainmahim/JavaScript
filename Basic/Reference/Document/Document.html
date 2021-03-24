@@ -22,54 +22,73 @@
     <h2>HTML DOM addEventListener() Method</h2>
     <p id="addEventListener_demo"></p>
     <script>
-        document.addEventListener("click",function(){
+        document.addEventListener("click", function () {
             document.getElementById("addEventListener_demo").innerHTML = "Mahim";
         });
     </script>
     <h2>HTML DOM adoptNode() Method</h2>
     <iframe src="photo.png" frameborder="0"></iframe>
-    <button >adoptNode</button>
+    <button>adoptNode</button>
     <script>
-        function adoptNode_function(){
+        function adoptNode_function() {
             var frame = document.getElementsByTagName("IFRAME")[0]
-            var h= frame.textContent.document.getElementsByTagName("H1")[1];
+            var h = frame.textContent.document.getElementsByTagName("H1")[1];
             var x = document.adoptNode(h);
             document.body.appendChild(x);
         }
     </script>
-<h2>HTML DOM anchors Collection</h2>
+    <h2>HTML DOM anchors Collection</h2>
 
-<a name="html"></a>
-<a name="css"></a>
-<a name="js"></a>
+    <a name="html"></a>
+    <a name="css"></a>
+    <a name="js"></a>
 
-<button onclick="anchors_function()">anchors</button>
+    <button onclick="anchors_function()">anchors</button>
 
-<p id="anchors_demo"></p>
-<script>
-    function anchors_function(){
-        var x = document.anchors.length;
-        document.getElementById("anchors_demo").innerHTML = x;
-    }
-</script>
+    <p id="anchors_demo"></p>
+    <script>
+        function anchors_function() {
+            var x = document.anchors.length;
+            document.getElementById("anchors_demo").innerHTML = x;
+        }
+    </script>
 
-<h2>HTML DOM baseURI Property</h2>
-<button onclick="baseuri_function()">baseURI</button>
-<p id="baseuri_demo"></p>
-<script>
-    function baseuri_function(){
-        var baseuri_variable  = document.baseURI;
-        document.getElementById("baseuri_demo").innerHTML = baseuri_variable;
-    }
-</script>
+    <h2>HTML DOM baseURI Property</h2>
+    <button onclick="baseuri_function()">baseURI</button>
+    <p id="baseuri_demo"></p>
+    <script>
+        function baseuri_function() {
+            var baseuri_variable = document.baseURI;
+            document.getElementById("baseuri_demo").innerHTML = baseuri_variable;
+        }
+    </script>
 
-<h2>HTML DOM body Property</h2>
-<button onclick="body_function()">body</button>
-<script>
-    function body_function(){
-        document.body.style.backgroundColor= "yellow";
-    }
-</script>
+    <h2>HTML DOM body Property</h2>
+    <button onclick="body_function()">body</button>
+    <script>
+        function body_function() {
+            document.body.style.backgroundColor = "yellow";
+        }
+    </script>
+    <h1>HTML DOM close() Method</h1>
+    <button onclick="close_function()">close()</button>
+    <script>
+        function close_function() {
+            document.open();
+            document.write("<h1>Hellow</h1>");
+            document.close();
+        }
+    </script>
+    <h2>HTML DOM cookie Property</h2>
+    <button onclick="">cookie()</button>
+    <p id="cookie_demo"></p>
+    <script>
+        function cookie_function() {
+            var cookie_variable = document.cookie;
+            document.getElementById("cookie_demo").innerHTML = "cookie associated with this document"
+                + cookie_variable;
+        }
+    </script>
 
 </body>
 
