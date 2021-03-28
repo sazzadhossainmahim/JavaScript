@@ -27,6 +27,71 @@
         }
     </script>
     <h2>HTML DOM console.error() Method</h2>
-    
+    <script>
+        console.error("you made a mistake");
+    </script>
+    <h2>HTML DOM console.group() Method</h2>
+    <script>
+        console.log("hellow world!");
+        console.group();
+        console.log("Hellow again, This time inside a group!");
+    </script>
+    <h2>HTML DOM console.groupCollapsed() Method</h2>
+    <script>
+        console.log("hellow world!");
+        console.groupCollapsed();
+        console.log("hellow again, this inside a collapsed group!");
+    </script>
+    <h2>HTML DOM console.groupEnd() Method</h2>
+    <script>
+        console.log("hi");
+        console.group();
+        console.log("my name is mahim!");
+        console.groupEnd();
+        console.log("and we are back");
+    </script>
+    <h2>HTML DOM console.info() Method</h2>
+    <script>
+        console.info("console.info method");
+    </script>
+
+    <h2>HTML DOM console.log() Method</h2>
+    <script>
+        console.log("console log method");
+    </script>
+    <h2>HTML DOM console.table() Method</h2>
+    <script>
+        console.table(["Andi","Volvo","Ford"]);
+    </script>
+    <h2>HTML DOM console.time() Method</h2>
+    <script>
+        console.time();
+        for(i=0;i<10000;i++){
+
+        }
+        console.timeEnd();
+    </script>
+    <h2>HTML DOM console.timeEnd() Method</h2>
+    <script>
+        console.time();
+        for(i=0;i<1000;i++){
+
+        }
+        console.time();
+    </script>
+    <h2>HTML DOM console.trace() Method</h2>
+    <button onclick="consoletrace_function()">consolerace()</button>
+    <script>
+        function consoletrace_function(){
+            othertrace_function();
+        }
+        function othertrace_function(){
+            console.trace();
+        }
+    </script>
+    <h2>HTML DOM console.warn() Method</h2>
+    <script>
+        console.warn("This is warning");
+    </script>
 </body>
 </html>
