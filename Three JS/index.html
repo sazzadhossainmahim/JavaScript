@@ -1,43 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Three Js</title>
-	<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<title>My first three.js app</title>
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
 </head>
 
 <body>
 	<script src="js/three.js"></script>
-	<script src="three.js-master/examples/js/controls/OrbitControls.js"></script>
-	<script src="three.js-master/examples/js/loaders/GLTFLoader.js"></script>
-
 
 	<script>
+		const scene = new THREE.Scene();
+
+
+		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+		// Drawing lines
+		const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+		camera.position.set(0, 0, 100);
+		camera.lookAt(0, 0, 0);
+		const material = new THREE.LineBasicMaterial({ color: 0x000ff });
+		// --need a geometry with some vertices
+		const points = [];
+		point.push(new THREE.Vector3(-10, 0, 0));
+		point.push(new THREE.Vector3(0, 10, 0));
+		point.push(new THREE.Vector3(10, 0, 0));
+		const geometry = new THREE.BufferGeometry().setFormPoints(points);
+		const line = new THREE.Line(geometry,material);
+		scene.add(line);
+		renderer.render(scene,camera);
+
+
+
 		const renderer = new THREE.WebGLRenderer();
 		renderer.setSize(window.innerWidth, window.innerHeight);
 		document.body.appendChild(renderer.domElement);
 
-		const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
-		camera.position.set(0, 0, 100);
-		camera.lookAt(0, 0, 0);
+		const geometry = new THREE.BoxGeometry();
+		const material = new THREE.MeshBasicMaterial({ color: 0x00f0f });
+		const cube = new THREE.Mesh(geometry, material);
+		scene.add(cube);
+		renderer.render(scene,camera);
 
-		const scene = new THREE.Scene();
+		camera.position.z = 5;
 
-		const material = new THREE.LineBasicMaterial({ color: 0x0000ff });
-		const points = [];
-		points.push(new THREE.Vector3(- 10, 0, 0));
-		points.push(new THREE.Vector3(0, 10, 0));
-		points.push(new THREE.Vector3(10, 0, 0));
+		const animate = function () {
+			requestAnimationFrame(animate);
 
-		const geometry = new THREE.BufferGeometry().setFromPoints(points);
-		const line = new THREE.Line(geometry, material);
-		scene.add(line);
-		renderer.render(scene, camera);
-		
+			cube.rotation.x += 0.01;
+			cube.rotation.y += 0.01;
+
+			renderer.render(scene, camera);
+		};
+		animate();
+
+
 	</script>
+
+
 
 </body>
 
