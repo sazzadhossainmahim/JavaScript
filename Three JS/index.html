@@ -1,294 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="utf-8" />
-		<base href="../../../" />
-		<script src="page.js"></script>
-		<link type="text/css" rel="stylesheet" href="page.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>three.js css2d - label</title>
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			.label {
+				color: #FFF;
+				font-family: sans-serif;
+				padding: 2px;
+				background: rgba( 0, 0, 0, .6 );
+			}
+		</style>
 	</head>
 	<body>
-		<h1>[name]</h1>
+		<div id="info">
+			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> css2d - label</div>
 
-		<h2>Overview</h2>
+		<script type="module">
 
-		<p class="desc">
-			Within the three.js animation system you can animate various properties of your models:
-			the bones of a [page:SkinnedMesh skinned and rigged model], morph targets, different material properties
-			(colors, opacity, booleans), visibility and transforms. The animated properties can be faded in,
-			faded out, crossfaded and warped. The weight and time scales of different simultaneous
-			animations on the same object as well as on different objects can be changed
-			independently. Various animations on the same and on different objects can be
-			synchronized.<br /><br />
+			import * as THREE from '../build/three.module.js';
 
-			To achieve all this in one homogeneous system, the three.js animation system
-			[link:https://github.com/mrdoob/three.js/issues/6881 has completely changed in 2015]
-			(beware of outdated information!), and it has now an architecture similar to
-			Unity/Unreal Engine 4. This page gives a short overview of the main components of the
-			system and how they work together.
+			import { OrbitControls } from './jsm/controls/OrbitControls.js';
+			import { CSS2DRenderer, CSS2DObject } from './jsm/renderers/CSS2DRenderer.js';
 
-		</p>
+			let camera, scene, renderer, labelRenderer;
 
-		<h3>Animation Clips</h3>
+			const clock = new THREE.Clock();
+			const textureLoader = new THREE.TextureLoader();
 
-		<p class="desc">
+			let moon;
 
-			If you have successfully imported an animated 3D object (it doesn't matter if it has
-			bones or morph targets or both) — for example exporting it from Blender with the
-			[link:https://github.com/KhronosGroup/glTF-Blender-IO glTF Blender exporter] and
-			loading it into a three.js scene using [page:GLTFLoader] — one of the response fields
-			should be an array named "animations", containing the [page:AnimationClip AnimationClips]
-			for this model (see a list of possible loaders below).<br /><br />
+			init();
+			animate();
 
-			Each *AnimationClip* usually holds the data for a certain activity of the object. If the
-			mesh is a character, for example, there may be one AnimationClip for a walkcycle, a second
-			for a jump, a third for sidestepping and so on.
+			function init() {
 
-		</p>
+				const EARTH_RADIUS = 1;
+				const MOON_RADIUS = 0.27;
 
-		<h3>Keyframe Tracks</h3>
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 200 );
+				camera.position.set( 10, 5, 20 );
 
-		<p class="desc">
+				scene = new THREE.Scene();
 
-			Inside of such an *AnimationClip* the data for each animated property are stored in a
-			separate [page:KeyframeTrack]. Assuming a character object has a [page:Skeleton skeleton],
-			one keyframe track could store the data for the position changes of the lower arm bone
-			over time, a different track the data for the rotation changes of the same bone, a third
-			the track position, rotation or scaling of another bone, and so on. It should be clear,
-			that an AnimationClip can be composed of lots of such tracks.<br /><br />
+				const dirLight = new THREE.DirectionalLight( 0xffffff );
+				dirLight.position.set( 0, 0, 1 );
+				scene.add( dirLight );
 
-			Assuming the model has morph targets (for example one morph
-			target showing a friendly face and another showing an angry face), each track holds the
-			information as to how the [page:Mesh.morphTargetInfluences influence] of a certain morph
-			target changes during the performance of the clip.
+				const axesHelper = new THREE.AxesHelper( 5 );
+				scene.add( axesHelper );
 
-		</p>
+				//
 
-		<h3>Animation Mixer</h3>
-
-		<p class="desc">
-
-			The stored data forms only the basis for the animations - actual playback is controlled by
-			the [page:AnimationMixer]. You can imagine this not only as a player for animations, but
-			as a simulation of a hardware like a real mixer console, which can control several animations
-			simultaneously, blending and merging them.
-
-		</p>
-
-		<h3>Animation Actions</h3>
+				const earthGeometry = new THREE.SphereGeometry( EARTH_RADIUS, 16, 16 );
+				const earthMaterial = new THREE.MeshPhongMaterial( {
+					specular: 0x333333,
+					shininess: 5,
+					map: textureLoader.load( 'textures/planets/earth_atmos_2048.jpg' ),
+					specularMap: textureLoader.load( 'textures/planets/earth_specular_2048.jpg' ),
+					normalMap: textureLoader.load( 'textures/planets/earth_normal_2048.jpg' ),
+					normalScale: new THREE.Vector2( 0.85, 0.85 )
+				} );
+				const earth = new THREE.Mesh( earthGeometry, earthMaterial );
+				scene.add( earth );
 
-		<p class="desc">
+				const moonGeometry = new THREE.SphereGeometry( MOON_RADIUS, 16, 16 );
+				const moonMaterial = new THREE.MeshPhongMaterial( {
+					shininess: 5,
+					map: textureLoader.load( 'textures/planets/moon_1024.jpg' )
+				} );
+				moon = new THREE.Mesh( moonGeometry, moonMaterial );
+				scene.add( moon );
 
-			The *AnimationMixer* itself has only very few (general) properties and methods, because it
-			can be controlled by the [page:AnimationAction AnimationActions]. By configuring an
-			*AnimationAction* you can determine when a certain *AnimationClip* shall be played, paused
-			or stopped on one of the mixers, if and how often the clip has to be repeated, whether it
-			shall be performed with a fade or a time scaling, and some additional things, such crossfading
-			or synchronizing.
-
-		</p>
+				//
 
-		<h3>Animation Object Groups</h3>
-
-		<p class="desc">
+				const earthDiv = document.createElement( 'div' );
+				earthDiv.className = 'label';
+				earthDiv.textContent = 'Earth';
+				earthDiv.style.marginTop = '-1em';
+				const earthLabel = new CSS2DObject( earthDiv );
+				earthLabel.position.set( 0, EARTH_RADIUS, 0 );
+				earth.add( earthLabel );
 
-			If you want a group of objects to receive a shared animation state, you can use an
-			[page:AnimationObjectGroup].
+				const moonDiv = document.createElement( 'div' );
+				moonDiv.className = 'label';
+				moonDiv.textContent = 'Moon';
+				moonDiv.style.marginTop = '-1em';
+				const moonLabel = new CSS2DObject( moonDiv );
+				moonLabel.position.set( 0, MOON_RADIUS, 0 );
+				moon.add( moonLabel );
 
-		</p>
+				//
 
-		<h3>Supported Formats and Loaders</h3>
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
 
-		<p class="desc">
-			Note that not all model formats include animation (OBJ notably does not), and that only some
-			three.js loaders support [page:AnimationClip AnimationClip] sequences. Several that <i>do</i>
-			support this animation type:
-		</p>
+				labelRenderer = new CSS2DRenderer();
+				labelRenderer.setSize( window.innerWidth, window.innerHeight );
+				labelRenderer.domElement.style.position = 'absolute';
+				labelRenderer.domElement.style.top = '0px';
+				document.body.appendChild( labelRenderer.domElement );
 
-			<ul>
-				<li>[page:ObjectLoader THREE.ObjectLoader]</li>
-				<li>THREE.BVHLoader</li>
-				<li>THREE.ColladaLoader</li>
-				<li>THREE.FBXLoader</li>
-				<li>[page:GLTFLoader THREE.GLTFLoader]</li>
-				<li>THREE.MMDLoader</li>
-			</ul>
-
-		<p class="desc">
-			Note that 3ds max and Maya currently can't export multiple animations (meaning animations which are not
-			on the same timeline) directly to a single file.
-		</p>
-
-		<h2>Example</h2>
-
-		<code>
-		let mesh;
-
-		// Create an AnimationMixer, and get the list of AnimationClip instances
-		const mixer = new THREE.AnimationMixer( mesh );
-		const clips = mesh.animations;
-
-		// Update the mixer on each frame
-		function update () {
-			mixer.update( deltaSeconds );
-		}
-
-		// Play a specific animation
-		const clip = THREE.AnimationClip.findByName( clips, 'dance' );
-		const action = mixer.clipAction( clip );
-		action.play();
-
-		// Play all animations
-		clips.forEach( function ( clip ) {
-			mixer.clipAction( clip ).play();
-		} );
-		</code>
+				const controls = new OrbitControls( camera, labelRenderer.domElement );
+				controls.minDistance = 5;
+				controls.maxDistance = 100;
 
-	</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<base href="../../../" />
-		<script src="page.js"></script>
-		<link type="text/css" rel="stylesheet" href="page.css" />
-	</head>
-	<body>
-		<h1>[name]</h1>
+				//
 
-		<h2>Overview</h2>
-
-		<p class="desc">
-			Within the three.js animation system you can animate various properties of your models:
-			the bones of a [page:SkinnedMesh skinned and rigged model], morph targets, different material properties
-			(colors, opacity, booleans), visibility and transforms. The animated properties can be faded in,
-			faded out, crossfaded and warped. The weight and time scales of different simultaneous
-			animations on the same object as well as on different objects can be changed
-			independently. Various animations on the same and on different objects can be
-			synchronized.<br /><br />
-
-			To achieve all this in one homogeneous system, the three.js animation system
-			[link:https://github.com/mrdoob/three.js/issues/6881 has completely changed in 2015]
-			(beware of outdated information!), and it has now an architecture similar to
-			Unity/Unreal Engine 4. This page gives a short overview of the main components of the
-			system and how they work together.
-
-		</p>
+				window.addEventListener( 'resize', onWindowResize );
 
-		<h3>Animation Clips</h3>
-
-		<p class="desc">
-
-			If you have successfully imported an animated 3D object (it doesn't matter if it has
-			bones or morph targets or both) — for example exporting it from Blender with the
-			[link:https://github.com/KhronosGroup/glTF-Blender-IO glTF Blender exporter] and
-			loading it into a three.js scene using [page:GLTFLoader] — one of the response fields
-			should be an array named "animations", containing the [page:AnimationClip AnimationClips]
-			for this model (see a list of possible loaders below).<br /><br />
-
-			Each *AnimationClip* usually holds the data for a certain activity of the object. If the
-			mesh is a character, for example, there may be one AnimationClip for a walkcycle, a second
-			for a jump, a third for sidestepping and so on.
-
-		</p>
-
-		<h3>Keyframe Tracks</h3>
-
-		<p class="desc">
-
-			Inside of such an *AnimationClip* the data for each animated property are stored in a
-			separate [page:KeyframeTrack]. Assuming a character object has a [page:Skeleton skeleton],
-			one keyframe track could store the data for the position changes of the lower arm bone
-			over time, a different track the data for the rotation changes of the same bone, a third
-			the track position, rotation or scaling of another bone, and so on. It should be clear,
-			that an AnimationClip can be composed of lots of such tracks.<br /><br />
-
-			Assuming the model has morph targets (for example one morph
-			target showing a friendly face and another showing an angry face), each track holds the
-			information as to how the [page:Mesh.morphTargetInfluences influence] of a certain morph
-			target changes during the performance of the clip.
-
-		</p>
-
-		<h3>Animation Mixer</h3>
-
-		<p class="desc">
-
-			The stored data forms only the basis for the animations - actual playback is controlled by
-			the [page:AnimationMixer]. You can imagine this not only as a player for animations, but
-			as a simulation of a hardware like a real mixer console, which can control several animations
-			simultaneously, blending and merging them.
-
-		</p>
-
-		<h3>Animation Actions</h3>
-
-		<p class="desc">
-
-			The *AnimationMixer* itself has only very few (general) properties and methods, because it
-			can be controlled by the [page:AnimationAction AnimationActions]. By configuring an
-			*AnimationAction* you can determine when a certain *AnimationClip* shall be played, paused
-			or stopped on one of the mixers, if and how often the clip has to be repeated, whether it
-			shall be performed with a fade or a time scaling, and some additional things, such crossfading
-			or synchronizing.
-
-		</p>
-
-		<h3>Animation Object Groups</h3>
-
-		<p class="desc">
-
-			If you want a group of objects to receive a shared animation state, you can use an
-			[page:AnimationObjectGroup].
-
-		</p>
-
-		<h3>Supported Formats and Loaders</h3>
-
-		<p class="desc">
-			Note that not all model formats include animation (OBJ notably does not), and that only some
-			three.js loaders support [page:AnimationClip AnimationClip] sequences. Several that <i>do</i>
-			support this animation type:
-		</p>
-
-			<ul>
-				<li>[page:ObjectLoader THREE.ObjectLoader]</li>
-				<li>THREE.BVHLoader</li>
-				<li>THREE.ColladaLoader</li>
-				<li>THREE.FBXLoader</li>
-				<li>[page:GLTFLoader THREE.GLTFLoader]</li>
-				<li>THREE.MMDLoader</li>
-			</ul>
-
-		<p class="desc">
-			Note that 3ds max and Maya currently can't export multiple animations (meaning animations which are not
-			on the same timeline) directly to a single file.
-		</p>
-
-		<h2>Example</h2>
-
-		<code>
-		let mesh;
-
-		// Create an AnimationMixer, and get the list of AnimationClip instances
-		const mixer = new THREE.AnimationMixer( mesh );
-		const clips = mesh.animations;
-
-		// Update the mixer on each frame
-		function update () {
-			mixer.update( deltaSeconds );
-		}
-
-		// Play a specific animation
-		const clip = THREE.AnimationClip.findByName( clips, 'dance' );
-		const action = mixer.clipAction( clip );
-		action.play();
-
-		// Play all animations
-		clips.forEach( function ( clip ) {
-			mixer.clipAction( clip ).play();
-		} );
-		</code>
+			}
 
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				labelRenderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				const elapsed = clock.getElapsedTime();
+
+				moon.position.set( Math.sin( elapsed ) * 5, 0, Math.cos( elapsed ) * 5 );
+
+				renderer.render( scene, camera );
+				labelRenderer.render( scene, camera );
+
+			}
+
+		</script>
 	</body>
 </html>
