@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/dist/output.css">
+    <script src="/script/js.js"></script>
+</head>
+
+<body onload="t()">
+    <div class="grid grid-cols-7 p-2 m-2 mt-2 bg-blue-100 border border-red-700 rounded w-fit h-fit ">
+        <div>
+            <h1 id="demo"></h1>
+            <button type="button" class="w-5 h-5 mr-3 bg-red-500 justify-items-center animate-ping" onclick='document.getElementById("demo").innerHTML = "welcome sir!"'>
+                 
+            </button>
+
+
+            <button onclick="document.getElementById('attribute').src = 'https://media.giphy.com/media/9Ggog7ucJuojkcyY5r/giphy.gif'">Trun off</button>
+            <img src="https://media.giphy.com/media/9Ggog7ucJuojkcyY5r/giphy.gif" alt="" id="attribute" class="w-1/6">
+            <button onclick="document.getElementById('attribute').src = 'https://media.giphy.com/media/9Ggog7ucJuojkcyY5r/giphy.gif'">Trun on</button>
+
+            <!-- hide hml elements -->
+            <p id="hide">hello click for hide me</p>
+            <button onclick="document.getElementById('hide').style.display='none'">Hide it</button>
+
+            <script>
+                function t() {
+
+                    const today = new Date();
+                    let h = today.getHours();
+                    let m = today.getMinutes();
+                    let s = today.getSeconds();
+
+                    m = checkTime(m);
+                    s = checkTime(s);
+
+                    document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+                    setTimeout(startTime, 1000);
+
+                }
+
+                function checkTime(i) {
+                    if (i < 10) {
+                        i = "0" + i
+                    };
+                    return i;
+                }
+            </script><br>
+            <div id="time" style="display:none"></div>
+            <button type="button" id="" onclick="document.getElementById('time').style.display = 'block'">
+                show time 
+            </button>
+        </div>
+
+        <div class="bg-red-200">
+            <h3>Where to Insert JavaScript</h3><br>
+            <script>
+                function Head() {
+                    document.getElementById("head").innerHTML = "head changed";
+
+                }
+            </script>
+            <p id="head">A paragraph</p>
+            <button type="button" onclick="Head()" class="border border-red-800 rounded">head</button>
+        </div>
+
+        <div class="bg-pink-200">
+            <script>
+                document.write(5 + 6);
+            </script>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
