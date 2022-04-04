@@ -6,9 +6,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="dist/output.css">
+    <script src="/script/windowProperty.js"></script>
 </head>
 
-<body class="bg-slate-900 m-2 p-2 border-4 rounded border-sky-700"> hello
+<body class="box-border font-sans italic rounded">
+
+    <div class="box-border p-4 m-2 mb-4 bg-blue-200 border-8 border-red-700 ">
+        <h1 class="font-bold text-center uppercase text-sky-100 ">Window Reference</h1>
+        <div class="p-4 mx-2 border-4 border-red-600 ">
+            <div class="p-2 border-2 border-green-500">
+                <h3 class="px-8 mx-8 text-lg text-left underline border-2 m underline-offset-8 decoration-dotted ">Window Object Properties</h3>
+
+                <div class="flex h-12 px-2 mx-2 ">
+                    <table class="m-2 border border-collapse ">
+                        <thead>
+
+                            <tr>
+                                <th class="px-2 m-2 border border-state-600">
+                                    <button class="border-4 border-red-800 rounded" onclick="WindowOpen() ">
+                                        Open Window
+                                    </button>
+
+
+                                </th>
+                                <th class="border border-state-600">
+                                    <button onclick="WindowClose() ">
+                                        close Window
+                                    </button>
+                                </th>
+                            </tr>
+
+
+
+                        </thead>
+
+                    </table>
+
+
+                </div>
+
+                <div class="p-2 mt-2 border-4 border-gray-700 h-26">
+                    <h3 class="font-bold text-center">Window Console Object</h3>
+                    <table class="flex h-32 p-2 m-2 border-2 border-blue-900">
+                        <thead>
+                            <tr>
+                                <th>assert() </th>
+                                <th>clear()</th>
+                                <th>
+                                    <button>
+                                        count()
+                                    </button>
+                                </th>
+                                <th>error()</th>
+                                <th>group()</th>
+                                <th>groupCollapsed()</th>
+                                <th>groupEnd()</th>
+                                <th>info()</th>
+                                <th>log()</th>
+                                <th>table()</th>
+                                <th>time()</th>
+                                <th>timeEnd()</th>
+                                <th>trace()</th>
+                                <th>warn()</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="box-border grid grid-cols-6 p-2 m-2 border-2 border-green-700 h-42">
+                    <div class="">Document</div>
+                    <div class="">FrameElement</div>
+                    <div class="">Frames</div>
+                    <div class="">History</div>
+                    <div class="">InnerHeight</div>
+                    <div class="">InnerWidth</div>
+                    <div class="">Length</div>
+                    <div class="">LocalStorage</div>
+                    <div class="">Location</div>
+                    <div class="">Name</div>
+                    <div class="">Navigator</div>
+                    <div class="">Opener</div>
+                    <div class="">OuterHeight</div>
+                    <div class="">OuterWidth</div>
+                    <div class="">PageXOffset</div>
+                    <div class="">PageYOffset</div>
+                    <div class="">Parent</div>
+                    <div class="">Screen</div>
+                    <div class="">ScreenLeft</div>
+                    <div class="">ScreenTop</div>
+                    <div class="">ScreenX</div>
+                    <div class="">ScreenY</div>
+                    <div class="">SessionStorage</div>
+                    <div class="">ScrollX</div>
+                    <div class="">ScrollY</div>
+                    <div class="">Self</div>
+                    <div class="">top</div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="p-2 m-4 border-2 border-blue-900 h-22">
+            <h2 class="font-bold text-center text-align">History</h2>
+            <div>
+                <h3 class="mx-2 font-bold uppercase">History Object Properties and Methods</h3>
+                <div class="p-3 mx-3 border-2 border-sky-500">
+                    <table class="grid p-2 m-1 space-x-4">
+                        <th>
+                            <tr>back()</tr>
+                            <tr>forward()</tr>
+                            <tr>go()</tr>
+                            <tr>length()</tr>
+                        </th>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 m-2 border-4 border-green-500">
+            <h2 class="font-bold text-center underline uppercase underline-offset-8">Location</h2>
+            <div class="p-2 m-2 border-4 border-yellow-400">
+                <h3 class="mx-6 font-bold underline ">Location Object Properties</h3>
+
+                <table class="p-3 m-2 border-2 border-sky-800">
+                    <thead class="">
+                        <tr class="flex flex-row gap-4">
+                            <td>hash</td>
+                            <td>host</td>
+                            <td>hostname</td>
+                            <td>href</td>
+                            <td>origin</td>
+                            <td>pathname</td>
+                            <td>port</td>
+                            <td>protocol</td>
+                            <td>search</td>
+                            <td>search</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="p-2 m-2 border-4 border-violet-700">
+                <h3 class="mx-3 font-bold uppercase ">Location Object Methods</h3>
+                <table class="">
+                    <tr>
+                        <td>assign()</td>
+                        <td>reload()</td>
+                        <td>replace()</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div>
+            <h2>Navigator</h2>
+            <div>
+                <h3>Navigator Object Properties</h3>
+                <table>
+                    <tr>
+                        <td>appCodeName</td>
+                        <td>appName</td>
+                        <td>appVersion</td>
+                        <td>cookieEnabled</td>
+                        <td>geolocation</td>
+                        <td>language</td>
+                        <td>onLine</td>
+                        <td>platform</td>
+                        <td>product</td>
+                        <td>userAgent</td>
+                    </tr>
+                </table>
+                <h3>Navigator Object Methods</h3>
+                <div>javaEnabled()</div>
+            </div>
+        </div>
+        <div>
+            <h2>Screen</h2>
+            <table>
+                <td>availHeight</td>
+                <td>availWidth</td>
+                <td>colorDepth</td>
+                <td>height</td>
+                <td>pixelDepth</td>
+                <td>width</td>
+            </table>
+        </div>
+    </div>
+
+    <div class="box-border p-2 mb-2 bg-red-100 border-8 border-blue-800">
+        <h1 class="font-bold text-center underline underline-offset-8">HTML DOM Reference</h1>
+        <div>
+            <h2>Document</h2>
+        </div>
+        <div>
+            <h2>Element</h2>
+        </div>
+        <div>
+            <h2>Attributes</h2>
+        </div>
+        <div>
+            <h2>Events</h2>
+        </div>
+        <div>
+            <h2>Event Object</h2>
+        </div>
+
+        <div>
+            <h2>HTMLCollection</h2>
+        </div>
+        <div>
+            <h2>Style</h2>
+        </div>
+
+    </div>
+
+
+
+
 </body>
 
 </html>
