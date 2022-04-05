@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/practice/dist/output.css">
+</head>
+
+<body>
+    <div class="flex w-full h-64 p-2 m-2 space-x-4 bg-blue-100 border-4 border-red-500 divide-x divide-blue-500 rounded">
+        <div>
+            <h1>Where To</h1>
+            <p id="innerHtml"></p>
+        </div>
+
+        <div>
+            <p id="head" class="">head</p>
+            <button class="border-2 border-red-700 rounded" onclick="HeadFunction()">Try it</button>
+        </div>
+        <div>
+            <!-- javascript in <body> -->
+            <p id="BodyFunction">Body Function</p>
+            <button class="border-2 border-blue-800 rounded" onclick="BodyFunction()">Body gets change</button>
+        </div>
+
+        <!-- Javascript Output -->
+        <div>
+            <h3 class="text-lg font-bold text-center underline uppercase underline-offset-8 text-sky-500/100">Javascript Output</h3>
+
+            <div class="flex flex-row h-16 p-2 m-2 space-x-2 border border-blue-800 divide-x divide-pink-600 rounded divide-dashed w-fit ">
+                <!-- javascript display possibilities -->
+
+                <div class="">
+                    <h4>Using innerHTML</h4>
+                    <p id="InnderHTML"></p>
+                </div>
+                <div>
+                    <h4 onclick="document.write(5+6)">Using document.write()</h4>
+                </div>
+                <div>
+                    <h4 onclick="window.alert(5+6);">window.alert()</h4>
+                </div>
+                <div>
+                    <h4 onclick="console.log(5+6);">console.log()</h4>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="flex flex-col">
+            <div class="text-center underline uppercase">
+                <h3>Javascript Statements</h3>
+                <h4>Keywords</h4>
+
+            </div>
+            <div class="">
+                <table class="table-auto ">
+                    <tbody class="">
+                        <td class="border border-collapse divide-x divide-black border-slate-500">var</td>
+                        <td class="border border-collapse border-slate-500">let</td>
+                        <td>const</td>
+                        <td>if</td>
+                        <td>switch</td>
+                        <td>for</td>
+                        <td>function</td>
+                        <td>return</td>
+                        <td>try</td>
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="flex flex-row h-64 p-1 m-2 border-4 border-red-700 rounded w-fit">
+        <div class="w-1/6 h-full text-center border-2 border-yellow-700">
+            <h4>Javascript Variable</h4>
+
+
+        </div>
+    </div>
+</body>
+<script src="./practice.js"></script>
+
+</html>
