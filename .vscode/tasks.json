@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "practice/",
+			"group": "clean",
+			"problemMatcher": [],
+			"label": "npm: install - practice",
+			"detail": "install dependencies from package"
+		}
+	]
+}

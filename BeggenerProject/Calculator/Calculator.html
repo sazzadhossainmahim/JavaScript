@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/dist/output.css">
+    <script src="Calculator.js"></script>
+</head>
+
+<body>
+    <div class="p-4 m-3 my-4 border-4 border-red-500 rounded h-2/3">
+        <!-- <h3 class="p-1 m-2 text-lg text-center underline border-2 border-green-600 rounded w-fit align-center">JavaScript Calculator</h3> -->
+        <div class="p-3 m-2 border-2 border-red-400 rounded">
+            <table class="w-full p-2 mx-2 border-2 border-blue-800 rounded ">
+                <tr>
+                    <td><input class="w-full text-center bg-red-300 border-4 rounded border-blue-500/100" type="button" value="c" onclick="Clear()"></td>
+                    <td class="" colspan="3">
+                        <input class="w-full bg-red-300 border-4 rounded border-blue-500/100" id="TextVal">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="+ " onclick="Display( '+') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-2 rounded " type="button " value="1 " onclick="Display( '1') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-2 rounded " type="button " value="2 " onclick="Display( '2') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-2 rounded " type="button " value="3 " onclick="Display( '3') "></td>
+                </tr>
+                <tr>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="- " onclick="Display( '-') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="4 " onclick="Display( '4') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="5 " onclick="Display( '5') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="6 " onclick="Display( '6') "></td>
+                </tr>
+                <tr>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="- " onclick="Display( '*') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="7 " onclick="Display( '5') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="8 " onclick="Display( '6') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="9 " onclick="Display( '7') "></td>
+                </tr>
+                <tr>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="/ " onclick="Display( '/') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value=". " onclick="Display( '.') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="0 " onclick="Display( '0') "></td>
+                    <td class="border border-stale-600 "><input class="w-full bg-red-300 border-4 rounded border-blue-500/100 " type="button " value="=" onclick=" Evaluate() "></td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
