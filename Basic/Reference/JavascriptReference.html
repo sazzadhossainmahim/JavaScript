@@ -10,36 +10,62 @@
 </head>
 
 <body>
-    <div class="flex flex-col w-full h-full bg-blue-500 border-8 border-green-500 m-2 p-1 box-border rounded">
-        <div class="border-4 h-fit w-fit rounded m-2 p-1 box-border ">
-            <h4 class="text-center text-lg underline uppercase">Javascript Reference</h4>
-            <div class="grid grid-cols-4 m-2 p-1 border-2 border-red-600 rounded-md border-dotted  ">
-                <div class=" border-2 m-1 p-1 text-center rounded-full border-blue-700"> Array</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> String</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Number</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Math</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Date</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Global</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> RegExp</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Classes</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Error</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Boolean</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Operators</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> Statements</div>
-                <div class="border-2 m-1 p-1 text-center rounded-full border-blue-700"> JSON</div>
+    <div class="box-border flex flex-col w-full h-full p-1 m-2 bg-teal-700 border-8 border-green-500 rounded">
+        <div class="box-border p-1 m-2 border-4 rounded h-fit w-fit ">
+            <h4 class="text-lg text-center underline uppercase">Javascript Reference</h4>
+            <div class="grid grid-cols-4 p-1 m-2 border-2 border-red-600 border-dotted rounded-md ">
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Array</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> String</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Number</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Math</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Date</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Global</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> RegExp</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Classes</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Error</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Boolean</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Operators</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> Statements</div>
+                <div class="p-1 m-1 text-center border-2 border-blue-700 rounded-full bg-sky-700 hover:bg-purple-600"> JSON</div>
             </div>
         </div>
-        <div class="border-4 h-36 w-fit rounded m-2 p-1 box-border">
-            <h4 class="text-center text-lg underline">Window Reference</h4>
+        <div class="box-border p-1 m-2 border-2 border-blue-500 border-double rounded-lg h-46 w-fit">
+            <h4 class="text-lg text-center underline">Window Reference</h4>
+            <div class="grid grid-cols-3 p-2 m-1 border-2 border-red-600 border-dashed h-fit w-fit ">
+                <div class="p-2 m-2 font-mono text-center bg-red-600 border-2 border-green-600 rounded hover:bg-green-700">Window</div>
+                <div class="p-2 m-2 font-mono text-center bg-red-600 border-2 border-green-600 rounded hover:bg-green-700">History</div>
+                <div class="p-2 m-2 font-mono text-center bg-red-600 border-2 border-green-600 rounded hover:bg-green-700">Location</div>
+                <div class="p-2 m-2 font-mono text-center bg-red-600 border-2 border-green-600 rounded hover:bg-green-700">Navigator</div>
+                <div class="p-2 m-2 font-mono text-center bg-red-600 border-2 border-green-600 rounded hover:bg-green-700">Screen</div>
+            </div>
+
         </div>
-        <div class="border-4 h-36 w-fit rounded m-2 p-1 box-border">
-            <h4 class="text-center text-lg underline">HTML DOM Reference</h4>
+        <div class="box-border p-2 m-2 border-4 rounded h-fit w-fit border-zinc-800">
+            <h4 class="text-lg text-center underline">HTML DOM Reference</h4>
+            <div class="grid grid-cols-3 gap-4 p-2 m-1 bg-red-600 border-4 border-green-600 border-double rounded-md hover:bg-black">
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">
+                    <a href="">Document</a>
+                </div>
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">Element</div>
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">Attribute</div>
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">Event</div>
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">Event Objects</div>
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">HTMLCollection</div>
+                <div class="text-center text-green-800 bg-red-100 border-2 rounded-full hover:bg-yellow-400 ">Style</div>
+            </div>
+
         </div>
-        <div class="border-4 h-36 w-fit rounded m-2 p-1 box-border">
-            <h4 class="text-center text-lg underline">Web APIs</h4>
+        <div class="box-border p-1 m-2 border-4 rounded h-fit w-fit">
+            <h4 class="text-lg text-center underline">Web APIs</h4>
+            <div class="grid grid-cols-4 p-1 m-2 text-center bg-blue-300 border-2 border-green-700 rounded-md h-fit w-fit">
+                <div class="p-1 m-2 text-white bg-pink-900 border-2 border-yellow-900 border-dotted rounded-lg hover:bg-blue-400 ">Console</div>
+                <div class="p-1 m-2 text-white bg-pink-900 border-2 border-yellow-900 border-dotted rounded-lg hover:bg-blue-400 ">Geolocation</div>
+                <div class="p-1 m-2 text-white bg-pink-900 border-2 border-yellow-900 border-dotted rounded-lg hover:bg-blue-400 ">History</div>
+                <div class="p-1 m-2 text-white bg-pink-900 border-2 border-yellow-900 border-dotted rounded-lg hover:bg-blue-400 ">Storage</div>
+            </div>
         </div>
-        <div class="border-4 h-36 w-fit rounded m-2 p-1 box-border">
-            <h4 class="text-center text-lg underline">HTML Element Objects Reference</h4>
+        <div class="box-border p-1 m-2 border-4 rounded h-36 w-fit">
+            <h4 class="text-lg text-center underline">HTML Element Objects Reference</h4>
         </div>
     </div>
 </body>
