@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input id="checkbox" disabled/>
+    <label for="checkbox">checkbox<label/>
+    <button id="button" type="button">Verify Code<button/>
+</body>
+<script>
+    const button = document.getElementById('button');
+    button.addEventListener('click',()=>{
+        if(sessionStorage.confirmC)
+        document.getElementById("checkbox").checked  = true;
+        document.getElementById("checkbox").checked = false;
+    })
+</script>
+</html>
