@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Storage Object</title>
+</head>
+
+<body>
+    <h2>Storage key() Method</h2>
+    <button onclick="key_function()">key()</button>
+    <p id="key_demo"></p>
+    <script>
+        function key_function() {
+            var key_variable = localStorage.key(0);
+            document.getElementById("key_demo").innerHTML = key_variable;
+        }
+    </script>
+    <h2>Storage length Property</h2>
+    <button onclick="length_function()">length()</button>
+    <p id="length_demo"></p>
+    <script>
+        function length_function() {
+            var length_variable = localStorage.length;
+            document.getElementById("length_demo").innerHTML = length_variable;
+        }
+    </script>
+
+    <h2>Storage getItem() Method</h2>
+    <button onclick="getitem_function()">getitem()</button>
+    <button onclick="item_function()">Get the item value</button>
+    <p id="getitem_demo"></p>
+    <script>
+        function getitem_function() {
+            localStorage.mytime = Date.now();
+
+        }
+        function item_function() {
+            var item_variable = localStorage.getItem("mytime");
+            document.getElementById("getitem_demo").innerHTML = item_variable;
+        }
+    </script>
+    <h2>Storage setItem() Method</h2>
+    <button onclick="createItem()">setItem()</button>
+    <button onclick="readValue()">readvalue()</button>
+    <p id="setitem_demo"></p>
+    <script>
+        function createItem() {
+            localStorage.setItem("mytime", Date.now());
+        }
+        function readValue() {
+            var setitem_variable = localStorage.getItem("mytime");
+            document.getElementById("setitem_demo").innerHTML = setitem_variable;
+        }
+    </script>
+    <h2>Storage removeItem() Method</h2>
+    <button onclick="removeitem_function()">createItem</button>
+    <button onclick="delete_item()">removeItem()</button>
+    <button onclick="displayremoveitem()">displayitem()</button>
+    <p id="removeitem_demo"></p>
+    <script>
+        function removeitem_function() {
+            localStorage.mytime = Date.now();
+
+        }
+        function delete_item() {
+            localStorage.removeItem("mytime");
+        }
+        function displayremoveitem() {
+            var removeitem_variable = localStorage.getItem("mytime");
+            document.getElementById("removeitem_demo").innerHTML = removeitem_variable;
+        }
+    </script>
+    <h2>Storage clear() Method</h2>
+    <button onclick="deleteclear_items_function()">createitem</button>
+    <button onclick="deleteclear_items_function()">deleteitem</button>
+    <button onclick="displayclear_items_funciton()">displayitem</button>
+
+    <p id="clear_demo"></p>
+    <script>
+        function createclear_item_function() {
+            localStorage.setItem("mytime", Date.now());
+            localStorage.setItem("myname", "mahim");
+            localStorage.setItem("myage", 34);
+        }
+        function deleteclear_items_function() {
+            localStorage.clear();
+        }
+        function displayclear_items_funciton() {
+            var l, i;
+            document.getElementById("clear_demo").innerHTML = "";
+            for (i = 0; i < localStorage.length; i++) {
+                x = localStorage.key(i);
+                document.getElementById("clear_demo").innerHTML += x + "<br>";
+            }
+        }
+    </script>
+    <h2>Window localStorage Property</h2>
+    <div id="window_demo"></div>
+    <script>
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem("lastname", "mahim");
+            document.getElementById("window_demo").innerHTML = localStorage.getItem("lastname");
+        } else {
+            document.getElementById("window_demo").innerHTML = "sorry , not supported";
+        }
+    </script>
+
+    <h2>Window sessionStorage Property</h2>
+    <div id="result"></div>
+
+    <script>
+        // Check browser support
+        if (typeof (Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("lastname", "Smith");
+            // Retrieve
+            document.getElementById("result").innerHTML = sessionStorage.getItem("lastname");
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+    </script>
+</body>
+
+</html>

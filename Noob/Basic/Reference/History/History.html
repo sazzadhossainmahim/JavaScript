@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The History Object</title>
+</head>
+
+<body>
+    <h2>History length Property</h2>
+    <p id="history_demo"></p>
+    <script>
+        var history_variable = history.length;
+        document.getElementById("history_demo").innerHTML = history_variable;
+    </script>
+
+    <h2>History back() Method</h2>
+    <button onclick="back_function()">back()</button>
+    <script>
+        function back_function() {
+            window.history.back();
+        }
+    </script>
+    <h2>History forward() Method</h2>
+    <button onclick="forward_function()">forward</button>
+    <script>
+        function forward_function() {
+            window.history.forward();
+        }
+    </script>
+    <h2>History go() Method</h2>
+    <button>go()</button>
+    <script>
+        function go_function() {
+            window.history.go(-2);
+        }
+    </script>
+</body>
+
+</html>

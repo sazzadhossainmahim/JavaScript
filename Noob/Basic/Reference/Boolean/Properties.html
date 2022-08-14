@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Boolean constructor property method</p>
+    <p id="demo_constructor"></p>
+    <script>
+        var bool = false;
+        document.getElementById("demo_constructor").innerHTML = bool.constructor;
+
+    </script>
+
+    <h2>Boolean prototype property</h2>
+    <button onclick="prototype_function()">prototype</button>
+    <p id="demo_prototype"></p>
+    <script>
+        Boolean.prototype.mycolor = function () {
+            if (this.valueOf() == true) {
+                return "green";
+            }
+            else {
+                return "red";
+            }
+        };
+        function prototype_function() {
+            var variable = false;
+            document.getElementById("demo_prototype").innerHTML = variable.mycolor();
+        }
+    </script>
+    <h2>Javascript Boolean ToString</h2>
+    <button onclick="Tostring_function()">tostring</button>
+    <p id="demo_tostring"></p>
+    <script>
+        function Tostring_function() {
+            var bool_variable = true;
+            var x = bool.toString();
+            document.getElementById("demo_tostring").innerHTML = typeof x;
+        }
+    </script>
+
+    <h2>Boolean valueof() method</h2>
+    <button onclick="valueof_function()">valueof()</button>
+    <p id="demo_valueof"></p>
+    <script>
+        function valueof_function() {
+            var bool = false;
+            var counter = bool.valueOf();
+            document.getElementById("demo_valueof").innerHTML = counter;
+
+        }
+    </script>
+</body>
+
+</html>

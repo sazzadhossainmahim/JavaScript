@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper active-element">
+        <header class="main-header">
+            <nav>
+                <div class="masthead active-element">
+                    <h1><a href="#0">Branding</a></h1>
+                    <div id="menu-toggle" class="menu-toggle active-element">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div>
+                </div>
+                <div class="main-nav-list active-element">
+                    <ul>
+                        <li><a href="#0">Demo Reel</a></li>
+                        <li><a href="#0">Faces</a></li>
+                        <li><a href="#0" class="mobile-hide">Blog</a></li>
+                        <li><a href="#0" class="active-link">About</a></li>
+                        <li><a href="#0">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="main-contents">
+            <h2>About</h2>
+            <p>Woot! Got the (vanilla) Javascript to work!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum labore cumque, laborum, dolorem dolor
+                doloribus iste qui omnis? Consequuntur sapiente mollitia iure quas. Rem nobis tenetur, est accusamus
+                iste dolor, necessitatibus, facilis error ratione aliquid sequi voluptates dignissimos. Quidem, quam,
+                rem? Molestias odio, perferendis dolores doloremque eum quo mollitia atque, sit inventore nisi accusamus
+                magnam vitae temporibus maxime et in aliquam qui aliquid obcaecati alias unde repellat laudantium quam
+                blanditiis. Blanditiis, earum itaque veritatis et numquam culpa, tempore magnam. Quas laborum voluptate
+                id vero. Voluptatibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque nemo
+                reprehenderit nostrum nesciunt, deleniti facere voluptas eligendi expedita dolor at praesentium sequi.
+                Accusamus vitae ut necessitatibus aut, repudiandae voluptate! Excepturi quam explicabo quis illo, qui a
+                ipsam sit atque non sed doloribus maiores in quo ut voluptatem neque animi, saepe facilis nemo et!
+                Temporibus dolores deserunt illo cum aut saepe tenetur, odit velit ipsum beatae dolore illum accusantium
+                alias ullam quas reiciendis! Quod at tenetur sint. Dolorum officia excepturi placeat, facere enim ullam,
+                tempora accusantium culpa voluptates iusto non aperiam beatae ut laboriosam voluptatibus eum corrupti
+                libero, laborum voluptas quasi at fugiat et vel? Eum.</p>
+        </main>
+        <footer class="main-footer active-element"><span class="copyright">&copy;2018 A. James Liptak</span></footer>
+    </div>
+    <style>
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            text-decoration: none;
+            color: #ccc;
+        }
+
+        body {
+            background-color: rgb(50, 101, 134);
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0 auto;
+            max-width: 1550px;
+            padding-top: .5rem;
+            width: 93%;
+
+        }
+
+        .main-header a {
+            letter-spacing: .18rem;
+            text-transform: uppercase;
+        }
+
+        .masthead {
+            position: relative;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            align-items: baseline;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .masthead h1 {
+            transition-delay: 450ms;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            width: 55px;
+            z-index: 3;
+        }
+
+        .menu-toggle div {
+            background-color: #ccc;
+            border-radius: 25px;
+            box-shadow: 0px 3px 13px rgba(0, 0, 0, .3);
+            height: 7px;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(.13, .24, .35, 1.64);
+        }
+
+        .menu-toggle .one,
+        .menu-toggle .two {
+            margin-bottom: 7px;
+        }
+
+        .main-contents {
+            flex: auto;
+        }
+
+        .main-contents h2 {
+            letter-spacing: 1.5px;
+            margin-bottom: .6rem;
+            text-transform: uppercase;
+        }
+
+        .main-contents p {
+            font-size: 1.1rem;
+            letter-spacing: 1.7px;
+            line-height: 1.35;
+            color: #ccc;
+            transition-delay: 150ms;
+            transition-duration: 850ms;
+        }
+
+        .main-footer span {
+            /*      color: #ccc; */
+            transition-delay: 150ms;
+            transition-duration: 1350ms;
+        }
+
+        .main-footer {
+            font-size: .9em;
+            letter-spacing: .18rem;
+            margin-bottom: 1.5rem;
+            margin-top: 4rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .main-nav-list::before,
+        .main-nav-list::after {
+            background-color: #b94071;
+            content: "";
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            width: 0vw;
+            transition: all 100ms ease-in-out 300ms;
+        }
+
+        .main-nav-list::before {
+            left: 0;
+        }
+
+        .main-nav-list::after {
+            right: 0;
+        }
+
+        .main-nav-list ul {
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+            z-index: 2000;
+        }
+
+        .main-nav-list a {
+            display: block;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            opacity: 0;
+            text-align: center;
+            text-transform: uppercase;
+            transition-delay: 130ms;
+        }
+
+        .main-nav-list .mobile-hide {
+            display: none;
+        }
+
+        .masthead.active h1 {
+            text-shadow: 0px 3px 3px rgba(0, 0, 0, .4);
+        }
+
+        .menu-toggle.active .one {
+            box-shadow: 0px 3px 13px rgba(0, 0, 0, .4);
+            transform: translate(0, 14px) rotate(45deg);
+        }
+
+        .menu-toggle.active .two {
+            background-color: transparent;
+            box-shadow: none;
+            transform: translateX(-55px);
+        }
+
+        .menu-toggle.active .three {
+            box-shadow: 0px 3px 13px rgba(0, 0, 0, .4);
+            transform: translate(0, -14px) rotate(-45deg);
+        }
+
+        .main-nav-list.active::before,
+        .main-nav-list.active::after {
+            width: 25vw;
+            /*     transition-duration: 1000ms; */
+        }
+
+        .main-nav-list.active ul {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition-delay: 560ms;
+            transition-duration: 240ms;
+            transition-timing-function: cubic-bezier(.1, .2, .3, 1.4);
+        }
+
+        .main-nav-list.active a {
+            transition-delay: 600ms;
+            opacity: 1;
+        }
+
+        .wrapper.active p {
+            color: rgb(50, 101, 134);
+            transition-delay: 150ms;
+            transition-duration: 350ms;
+        }
+
+        .main-footer.active span {
+            color: rgb(50, 101, 134);
+            transition-duration: 350ms;
+        }
+    </style>
+    <script>
+        var menuToggle = document.querySelector("#menu-toggle");
+        var activeElements = document.querySelectorAll(".active-element");
+        var toggledMenu = menuToggle.addEventListener("click", function () {
+
+            for (var activated = 0; activated < activeElements.length; activated++) {
+                activeElements[activated].classList.toggle("active");
+            }
+        })
+    </script>
+</body>
+
+</html>

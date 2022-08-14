@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Properties and Methods</title>
+    <link rel="stylesheet" href="/dist/output.css">
+    <script src="DOM.js"></script>
+</head>
+
+<body>
+    <div class="p-1 m-2 border-8 border-green-600 rounded-lg h-fit w-fit bg-blue-40">
+        <div class="p-3 m-2 border-4 border-blue-600 rounded-lg h-fit w-fit">
+            <table class="p-2 m-2 text-center border-4 border-red-800 divide">
+                <thead class="">
+                    <tr class="p-2 m-2 uppercase border-2 border-green-600 rounded">
+                        <th>Property/Method</th>
+                        <th>Description</th>
+                        <th>Syntax</th>
+                        <th>Example</th>
+                        <!-- <th>Example</th> -->
+                    </tr>
+                </thead>
+                <tr class="border-2 border-blue-500 ">
+                    <td class="p-2 m-2">activeElement</td>
+                    <td>Returns the currently focused element in the document</td>
+                    <td>document.activeElement</td>
+                    <td class="p-2 m-2"><button onclick="activeElementFunction()" class="p-1 border-2 border-red-500 rounded">activeElement</button></td>
+                    <td id="activeElement"></td>
+                </tr>
+                <tr class="border-2 border-red-900">
+                    <td>addEventListener()</td>
+                    <td>addEventListener() method allows you to add event listeners on any HTML DOM object such as HTML elements, the HTML document, the window object, or other objects that support events, like the xmlHttpRequest object.</td>
+                    <td>document.addEventListener("click", function(){ document.getElementById("demo").innerHTML = "Hello World"; });
+                    </td>
+                    <td class=""><button id="addEventListenerMethod">click</button></td>
+                </tr>
+                <tr>
+                    <td>adoptNode()</td>
+                    <td>adoptNode() method adopts a node from another document.The adoptNode() method adopts a node from another document</td>
+                    <td>document.adoptNode(node)</td>
+                    <td><button class="" id="" onclick="adoptNodeView()">adoptnodeview</button></td>
+                </tr>
+                <tr>
+                    <td>baseURL</td>
+                    <td>baseURI property returns the base URI of the document. return the base Uniform Resource Identifier (URI) of the document.
+                    </td>
+                    <td>document.baseURI</td>
+                    <td>
+                        <p id="baseURLView"></p>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>body</td>
+                    <td>The body property sets or returns a document's body element.</td>
+                    <td>document.body</td>
+                    <td><button class="border-2 border-green-600 " onclick="bodyPropertyFunction()">body</button></td>
+                </tr>
+                <tr>
+                    <td>characterSet</td>
+                    <td>get the character encoding for a document</td>
+                    <td>document.characterSet</td>
+                    <td>
+                        <p id="characterSetView">characterSet</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>close()</td>
+                    <td>close() method closes a window previously opened with the open() method.</td>
+                    <td>document.close()</td>
+                    <td><button onclick="closeMethod()">Open</button></td>
+                </tr>
+                <tr>
+                    <td>cookie()</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>createAttribute()</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>createComment()</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>createDocumentFragment()</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>createElement</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>createEvent()</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>defaultView</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>designMode</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>doctype</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>documentElement</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>documentURL</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>domain</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>domConfig</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
